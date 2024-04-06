@@ -4,8 +4,8 @@ export default function Step1() {
   return (
     <div>
       <p>
-        <h2>Personal Info</h2>
-        <h4>Please provide your email, name and Phonehumber</h4>
+        <h2 className="font-bold text-4xl">Personal Info</h2>
+        <h4 className="opacity-70">Please provide your email, name and Phonehumber</h4>
       </p>
       <form>
         <Input label="Name" id="name" />

@@ -1,26 +1,27 @@
+import Button from "../UI/Button";
+import HeadStep from "../UI/HeadStep";
 import Input from "../UI/Input";
 
 export default function Step1() {
-  
-  function handleSubmit(event){
-    event.preventDefault()
+  function handleSubmit(event) {
+    event.preventDefault();
 
-    const fd = new FormData(event.target)
+    const fd = new FormData(event.target);
     const fillData = Object.fromEntries(fd.entries());
-    console.log(fillData)
+    console.log(fillData);
   }
-
 
   return (
     <div className="space-y-10 py-10 h-full">
-      <div className="space-y-4">
-        <h2 className="font-bold text-3xl">Personal Info</h2>
-        <h4 className="opacity-70">
-          Please provide your email, name and Phonehumber
-        </h4>
-      </div>
-      <form onSubmit={handleSubmit} className="flex flex-col justify-between gap-10">
-      {/*  */}
+      <HeadStep
+        heading="Personal Info"
+        subHeading="Please provide your name, email address, and phone number."
+      />
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col justify-between gap-10"
+      >
+        {/*  */}
         <div className="space-y-4">
           <Input label="Name" id="name" />
           <Input label="Email Address" id="email" />
@@ -28,9 +29,7 @@ export default function Step1() {
         </div>
         {/*  */}
         <div className="flex justify-end">
-          <button type="submit" className="bg-[#3e52a3] px-4 py-3 rounded-lg text-white">
-            Next Step
-          </button>
+          <Button type="submit" />
         </div>
         {/*  */}
       </form>

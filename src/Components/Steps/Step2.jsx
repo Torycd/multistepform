@@ -7,12 +7,13 @@ export default function Step2() {
         heading="Select your plan"
         subHeading="You have the option of monthly or yearly billing."
       />
-      <form
-        //   onSubmit={handleSubmit}
-        className="flex flex-col justify-between gap-10"
-      >
+      <form className="flex flex-col justify-between gap-10">
         {/*  */}
-
+        <div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
         {/*  */}
       </form>
     </div>

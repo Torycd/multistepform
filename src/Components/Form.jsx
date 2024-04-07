@@ -1,5 +1,6 @@
 import Indicator from "./Indicator";
-import Step1 from "./Steps/Steps1";
+// import Step1 from "./Steps/Steps1";
+import { Outlet } from "react-router-dom";
 
 export default function Form() {
   return (
@@ -8,7 +9,7 @@ export default function Form() {
         <Indicator />
       </div>
       <div className="col-span-3">
-        <Step1 />
+        <Outlet/>
       </div>
     </div>
   );

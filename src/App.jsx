@@ -1,13 +1,29 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import HomePage from "./HomePage";
 import Form from "./Components/Form";
+import Step1 from "./Components/Steps/Steps1";
 
 const App = () => {
-  return (
-    <div className="bg-slate-600 flex align-center w-dvh h-dvh font-Ubuntu p-10">
-      <div className="w-[1080px] bg-white rounded-lg mx-auto p-10">
-        <Form />
-      </div>
-    </div>
-  );
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <HomePage />,
+      children: [
+        {
+          path: "/",
+          element: <Form />,
+          children: [
+            {
+              path: "/stepone",
+              element: <Step1 />,
+            },
+            {}
+          ],
+        },
+      ],
+    },
+  ]);
+  return <RouterProvider router={router} />;
 };
 
 export default App;

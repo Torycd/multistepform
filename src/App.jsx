@@ -3,6 +3,8 @@ import HomePage from "./HomePage";
 // import Form from "./Components/Form";
 import Step1 from "./Components/Steps/Step1";
 import Step2 from "./Components/Steps/Step2";
+import Step3 from "./Components/Steps/Step3";
+import Step4 from "./Components/Steps/Step4";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -17,7 +19,16 @@ const App = () => {
         {
           path: "/steptwo",
           element: <Step2/>
+        },
+        {
+          path: "/stepthree",
+          element: <Step3/>
+        },
+        {
+          path: "/stepfour",
+          element: <Step4/>
         }
+
       ],
     },
   ]);

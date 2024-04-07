@@ -1,7 +1,8 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "./HomePage";
-import Form from "./Components/Form";
-import Step1 from "./Components/Steps/Steps1";
+// import Form from "./Components/Form";
+import Step1 from "./Components/Steps/Step1";
+import Step2 from "./Components/Steps/Step2";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -11,15 +12,12 @@ const App = () => {
       children: [
         {
           path: "/",
-          element: <Form />,
-          children: [
-            {
-              path: "/stepone",
-              element: <Step1 />,
-            },
-            {}
-          ],
+          element: <Step1 />,
         },
+        {
+          path: "/steptwo",
+          element: <Step2/>
+        }
       ],
     },
   ]);

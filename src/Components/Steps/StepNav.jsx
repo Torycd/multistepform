@@ -1,6 +1,6 @@
+import PropTypes from "prop-types";
 
-
-export default function StepNav({stage, info }) {
+export default function StepNav({ stage, info }) {
   return (
     <div className="flex gap-2">
       <span className="w-12 h-12 rounded-full border-2 flex items-center hover:bg-[#B4E7FF] hover:text-black">
@@ -13,3 +13,8 @@ export default function StepNav({stage, info }) {
     </div>
   );
 }
+
+StepNav.propTypes = {
+  stage: PropTypes.string,
+  info: PropTypes.string,
+};

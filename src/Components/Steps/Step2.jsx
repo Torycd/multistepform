@@ -10,7 +10,9 @@ export default function Step2() {
       <form className="flex flex-col justify-between gap-10">
         {/*  */}
         <div>
-            <div></div>
+            <div>
+              
+            </div>
             <div></div>
             <div></div>
         </div>

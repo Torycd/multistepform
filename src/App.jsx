@@ -1,6 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "./HomePage";
-// import Form from "./Components/Form";
 import Step1 from "./Components/Steps/Step1";
 import Step2 from "./Components/Steps/Step2";
 import Step3 from "./Components/Steps/Step3";

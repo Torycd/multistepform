@@ -29,7 +29,7 @@ export default function Step1() {
         </div>
         {/*  */}
         <div className="flex justify-end">
-          <Button type="submit" />
+          <Button type="submit"  link="/steptwo"/>
         </div>
         {/*  */}
       </form>

@@ -10,7 +10,7 @@ export default function Step3() {
         subHeading="Add-ons help enhance your gaming experience."
       />
       <div className="flex flex-col gap-2">
-        <div className="flex justify-between p-5 rounded-lg border-2" >
+        <div className="flex justify-between p-5 rounded-lg border-2 hover:bg-gray-300" >
           <div className="flex gap-10">
             <input type="checkbox" />
             <div className="font-bold">
@@ -21,9 +21,9 @@ export default function Step3() {
           <p>+$1/mo</p>
         </div>
         {/*  */}
-        <div className="flex justify-between p-5 rounded-lg border-2">
+        <div className="flex justify-between p-5 rounded-lg border-2 hover:bg-gray-300 ">
           <div className="flex gap-10">
-            <input type="checkbox" className="checked:bg-purple-900" />
+            <input type="checkbox"/>
             <div className="font-bold">
               <h2>larger storage</h2>
               <p className="opacity-50">Access to multiplayer games</p>
@@ -32,7 +32,7 @@ export default function Step3() {
           <p>+$2/mo</p>
         </div>
         {/*  */}
-        <div className="flex justify-between p-5 rounded-lg border-2">
+        <div className="flex justify-between p-5 rounded-lg border-2 hover:bg-gray-300">
           <div className="flex gap-10">
             <input type="checkbox" />
             <div className="font-bold">

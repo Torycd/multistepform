@@ -43,7 +43,7 @@ export default function Step3() {
           <p>+$2/mo</p>
         </div>
         <div className="flex justify-between font-bold">
-          <Link to="/" className="px-4 py-3">
+          <Link to="/steptwo" className="px-4 py-3">
             Go Back
           </Link>
           <Button type="submit" link="/stepfour" />

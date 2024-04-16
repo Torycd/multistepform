@@ -1,8 +1,22 @@
 import { Link } from "react-router-dom";
 import Button from "../UI/Button";
 import HeadStep from "../UI/HeadStep";
+import { useState } from "react";
 
 export default function Step2() {
+  const [activeState, setActiveState] = useState({
+    one: false,
+    two: false,
+    three: false,
+  });
+
+  function handleActive(id) {
+    setActiveState((prevState) => ({
+      ...Object.fromEntries(
+        Object.keys(prevState).map((key) => [key, key === id])
+      ),
+    }));
+  }
   return (
     <div className="space-y-10 py-10 h-full">
       <HeadStep
@@ -12,7 +26,12 @@ export default function Step2() {
       <form className="flex flex-col justify-between gap-10">
         {/*  */}
         <div className="grid grid-cols-3 gap-5">
-          <div className="h-36 flex flex-col justify-between rounded-lg border-2 border-[#B4E7FF] p-2">
+          <div
+            onClick={() => handleActive("one")}
+            className={`h-36 flex flex-col justify-between rounded-lg border-2 ${
+              activeState.one ? "border-blue-500" : "border-[#B4E7FF]"
+            } p-2`}
+          >
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +55,12 @@ export default function Step2() {
             </div>
           </div>
 
-          <div className="h-36 flex flex-col justify-between rounded-lg border-2 border-[#B4E7FF] p-2">
+          <div
+            onClick={() => handleActive("two")}
+            className={`h-36 flex flex-col justify-between rounded-lg border-2 ${
+              activeState.two ? "border-blue-500" : "border-[#B4E7FF]"
+            } p-2`}
+          >
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -59,7 +83,12 @@ export default function Step2() {
               <p>$12/mo</p>
             </div>
           </div>
-          <div className="h-36 flex flex-col justify-between rounded-lg border-2 border-[#B4E7FF] p-2">
+          <div
+            onClick={() => handleActive("three")}
+            className={`h-36 flex flex-col justify-between rounded-lg border-2 ${
+              activeState.three ? "border-blue-500" : "border-[#B4E7FF]"
+            } p-2`}
+          >
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

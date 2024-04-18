@@ -1,15 +1,29 @@
+import { useState, useRef } from "react";
+
 import Button from "../UI/Button";
 import HeadStep from "../UI/HeadStep";
 import Input from "../UI/Input";
 
-export default function Step1() {
+
+export default function Step1({onNext}) {
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    number: "",
+  });
+  function handleChange(event) {
+    const { id, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [id]: value,
+    }));
+  }
   function handleSubmit(event) {
     event.preventDefault();
-
-    const fd = new FormData(event.target);
-    const fillData = Object.fromEntries(fd.entries());
-    console.log(fillData);
+    onNext(formData);
   }
+  
 
   return (
     <div className="space-y-10 py-10 h-full">
@@ -23,13 +37,13 @@ export default function Step1() {
       >
         {/*  */}
         <div className="space-y-4">
-          <Input label="Name" id="name" />
-          <Input label="Email Address" id="email" />
-          <Input label="Phone Number" id="number" />
+          <Input label="Name" id="name" value={formData.name} onChange={handleChange} />
+          <Input label="Email Address" id="email" value={formData.email} onChange={handleChange} />
+          <Input label="Phone Number" id="number" value={formData.number} onChange={handleChange} />
         </div>
         {/*  */}
         <div className="flex justify-end">
-          <Button type="submit" link="/steptwo" />
+          <Button type="submit" link="/steptwo" disable={!formData.name || !formData.email || !formData.number} />
         </div>
         {/*  */}
       </form>

@@ -10,7 +10,11 @@ export default function Step4() {
       <h2>Summary:</h2>
       <ul>
         {summary.map((item, index) => (
-          <li key={index}>{item}</li>
+          <li key={index}>
+            <h2>{item.name}</h2>
+            <p>{item.email}</p>
+            <p>{item.numbers}</p>
+          </li>
         ))}
       </ul>
     </div>

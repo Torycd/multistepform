@@ -7,8 +7,8 @@ export default function Step4() {
 
   return (
     <div>
-      <h2>Summary:</h2>
-      <ul>
+      <h2>Summary</h2>
+      <ul className="m">
         {summary.map((item, index) => (
           <li key={index}>
             <h2>{item.name}</h2>

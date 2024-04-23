@@ -2,7 +2,7 @@ import  { createContext, useState } from "react";
 
 export const ActionContext = createContext({
     summary: [],
-    updateSummary: () => {} // You can provide a default function if needed
+    updateSummary: (data) => {} // You can provide a default function if needed
 });
 
 const useActionContext = () => {

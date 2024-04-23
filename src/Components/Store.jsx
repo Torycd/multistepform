@@ -1,29 +1,28 @@
-import { createContext, useState } from "react";
+import  { createContext, useState } from "react";
 
 export const ActionContext = createContext({
     summary: [],
-    submitData: () => {}
-})
+    updateSummary: () => {} // You can provide a default function if needed
+});
 
 const useActionContext = () => {
     const [info, setInfo] = useState([]);
 
-    const compileInformation = () => {
-        setInfo([]);
+    const updateSummary = (summaryInfo) => {
+        setInfo(summaryInfo);
     }
 
-    const data = { summary: info, submitData: compileInformation };
-    return data;
+    return { summary: info, updateSummary }; // Returning an object directly
 }
 
-const ActionProvider = ({children}) => {
+const ActionProvider = ({ children }) => {
     const data = useActionContext();
 
     return (
         <ActionContext.Provider value={data}>
             {children}
         </ActionContext.Provider>
-    )
+    );
 }
 
-export default ActionProvider;
+export default ActionProvider; // Exporting useActionContext for external usage if needed

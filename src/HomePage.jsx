@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Indicator from "./Components/Indicator";
-import useProvider from "./Components/Store";
+// import useProvider from "./Components/Store";
 
 export default function HomePage() {
   return (

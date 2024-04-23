@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ActionProvider from "./Components/Store";
 import HomePage from "./HomePage";
 import Step1 from "./Components/Steps/Step1";
 import Step2 from "./Components/Steps/Step2";
@@ -9,7 +10,11 @@ const App = () => {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <HomePage />,
+      element: (
+        <ActionProvider>
+          <HomePage />
+        </ActionProvider>
+      ),
       children: [
         {
           path: "/",
@@ -17,17 +22,16 @@ const App = () => {
         },
         {
           path: "/steptwo",
-          element: <Step2/>
+          element: <Step2 />,
         },
         {
           path: "/stepthree",
-          element: <Step3/>
+          element: <Step3 />,
         },
         {
           path: "/stepfour",
-          element: <Step4/>
-        }
-
+          element: <Step4 />,
+        },
       ],
     },
   ]);

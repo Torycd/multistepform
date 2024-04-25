@@ -5,13 +5,14 @@ import Button from "../UI/Button";
 import HeadStep from "../UI/HeadStep";
 import Input from "../UI/Input";
 
-export default function Step1({onNext}) {
+export default function Step1() {
   const { updateSummary } = useContext(ActionContext);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     number: "",
   });
+
 
   function handleChange(event) {
     const { id, value } = event.target;
@@ -21,10 +22,11 @@ export default function Step1({onNext}) {
     }));
   }
   
+  
   function handleSubmit(event) {
     event.preventDefault();
     updateSummary(formData); // Update context's state
-    onNext(formData);
+    // onNext(formData);
   }
 
   return (
@@ -44,8 +46,9 @@ export default function Step1({onNext}) {
           <Input label="Phone Number" id="number" value={formData.number} onChange={handleChange} />
         </div>
         {/* Submit button */}
+
         <div className="flex justify-end">
-          <Button type="submit" link="/steptwo" disable={!formData.name || !formData.email || !formData.number} />
+          <Button type="submit" link="/steptwo" disable={!formData.name || !formData.email || !formData.number}/>
         </div>
       </form>
     </div>

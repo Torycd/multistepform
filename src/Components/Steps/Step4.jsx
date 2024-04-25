@@ -3,16 +3,18 @@ import { useContext } from "react";
 import { ActionContext } from "../Store";
 
 export default function Step4() {
-  const { summary } = useContext(ActionContext);
+  const { summarys, plans } = useContext(ActionContext);
+  console.log(summarys)
+  console.log(plans)
 
   return (
     <div>
       <h2>Summary</h2>
-      <ul className="m">
-        {summary.map((item, index) => (
+      <ul>
+        {summarys.map((item, index) => (
           <li key={index}>
             <h2>{item.name}</h2>
-            <p>{item.email}</p>
+            <p>{item.price}</p>
             <p>{item.numbers}</p>
           </li>
         ))}

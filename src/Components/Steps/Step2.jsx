@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import Button from "../UI/Button";
 import HeadStep from "../UI/HeadStep";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { ActionContext } from "../Store";
 
 export default function Step2() {
+  const { updatePlan } = useContext(ActionContext);
   const [activeState, setActiveState] = useState({
     one: false,
     two: false,
@@ -17,13 +19,39 @@ export default function Step2() {
       ),
     }));
   }
+  
+  function handleSubmit(event) {
+    event.preventDefault();
+    if (activeState.one) {
+      const item = {
+        name: "Arcade",
+        price: 9,
+      };
+      updatePlan(item);
+    } else if (activeState.two) {
+      const item = {
+        name: "Advanced",
+        price: 12,
+      };
+      updatePlan(item);
+    } else {
+      const item = {
+        name: "Pro",
+        price: 15,
+      };
+      updatePlan(item);
+    }
+  }
   return (
     <div className="space-y-10 py-10 h-full">
       <HeadStep
         heading="Select your plan"
         subHeading="You have the option of monthly or yearly billing."
       />
-      <form className="flex flex-col justify-between gap-10">
+      <form
+        className="flex flex-col justify-between gap-10"
+        onSubmit={handleSubmit}
+      >
         {/*  */}
         <div className="grid grid-cols-3 gap-5">
           <div

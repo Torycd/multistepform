@@ -39,13 +39,13 @@ export default function Step1() {
         onSubmit={handleSubmit}
         className="flex flex-col justify-between gap-10"
       >
-        {/* Form inputs */}
+    
         <div className="space-y-4">
           <Input label="Name" id="name" value={formData.name} onChange={handleChange} />
           <Input label="Email Address" id="email" value={formData.email} onChange={handleChange} />
           <Input label="Phone Number" id="number" value={formData.number} onChange={handleChange} />
         </div>
-        {/* Submit button */}
+    
 
         <div className="flex justify-end">
           <Button type="submit" link="/steptwo" disable={!formData.name || !formData.email || !formData.number}/>

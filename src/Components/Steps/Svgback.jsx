@@ -1,5 +1,7 @@
-export default function SvgBack() {
-    return (
+
+export default function SvgBack({className}) {
+  return (
+    <div className={className}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="274"
@@ -45,6 +47,6 @@ export default function SvgBack() {
           />
         </g>
       </svg>
-    );
-  }
-  
+    </div>
+  );
+}

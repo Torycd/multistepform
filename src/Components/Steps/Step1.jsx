@@ -4,7 +4,6 @@ import { ActionContext } from "../Store";
 import Button from "../UI/Button";
 import HeadStep from "../UI/HeadStep";
 import Input from "../UI/Input";
-import SvgBack from "./Svgback";
 
 export default function Step1() {
   const { updateSummary } = useContext(ActionContext);
@@ -67,9 +66,7 @@ export default function Step1() {
           />
         </div>
       </form>
-      <div>
-        <SvgBack/>
-      </div>
+      
     </div>
   );
 }

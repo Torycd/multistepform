@@ -4,6 +4,7 @@ import { ActionContext } from "../Store";
 import Button from "../UI/Button";
 import HeadStep from "../UI/HeadStep";
 import Input from "../UI/Input";
+import SvgBack from "./Svgback";
 
 export default function Step1() {
   const { updateSummary } = useContext(ActionContext);
@@ -13,7 +14,6 @@ export default function Step1() {
     number: "",
   });
 
-
   function handleChange(event) {
     const { id, value } = event.target;
     setFormData((prevData) => ({
@@ -21,8 +21,7 @@ export default function Step1() {
       [id]: value,
     }));
   }
-  
-  
+
   function handleSubmit(event) {
     event.preventDefault();
     updateSummary(formData); // Update context's state
@@ -39,18 +38,38 @@ export default function Step1() {
         onSubmit={handleSubmit}
         className="flex flex-col justify-between gap-10"
       >
-    
         <div className="space-y-4">
-          <Input label="Name" id="name" value={formData.name} onChange={handleChange} />
-          <Input label="Email Address" id="email" value={formData.email} onChange={handleChange} />
-          <Input label="Phone Number" id="number" value={formData.number} onChange={handleChange} />
+          <Input
+            label="Name"
+            id="name"
+            value={formData.name}
+            onChange={handleChange}
+          />
+          <Input
+            label="Email Address"
+            id="email"
+            value={formData.email}
+            onChange={handleChange}
+          />
+          <Input
+            label="Phone Number"
+            id="number"
+            value={formData.number}
+            onChange={handleChange}
+          />
         </div>
-    
-
         <div className="flex justify-end">
-          <Button type="submit" link="/steptwo" disable={!formData.name || !formData.email || !formData.number}/>
+          <Button
+            type="submit"
+            link="/steptwo"
+            butName="Next Step"
+            disable={!formData.name || !formData.email || !formData.number}
+          />
         </div>
       </form>
+      <div>
+        <SvgBack/>
+      </div>
     </div>
   );
 }

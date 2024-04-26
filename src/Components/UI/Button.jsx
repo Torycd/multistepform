@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-export default function Button({ type, link, disable }) {
+export default function Button({ type, link, butName, disable }) {
   return (
     <Link to={link}>
       <button
@@ -9,7 +9,7 @@ export default function Button({ type, link, disable }) {
         className={disable ? "bg-[#3e52a3] px-4 py-3 rounded-lg text-white cursor-not-allowed" : "bg-[#3e52a3] px-4 py-3 rounded-lg text-white"}
         disabled={disable ? disable : null}
       >
-        Next Step
+        {butName}
       </button>
     </Link>
   );
@@ -18,5 +18,7 @@ export default function Button({ type, link, disable }) {
 Button.propTypes = {
   type: PropTypes.string,
   link: PropTypes.string,
-  disable: PropTypes.bool
+  butName: PropTypes.string,
+  disable: PropTypes.bool,
+
 };

@@ -46,7 +46,7 @@ export default function Step3() {
           <Link to="/steptwo" className="px-4 py-3">
             Go Back
           </Link>
-          <Button type="submit" link="/stepfour" />
+          <Button type="submit" butName="Next Step" link="/stepfour" />
         </div>
       </div>
     </div>

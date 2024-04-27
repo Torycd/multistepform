@@ -1,3 +1,6 @@
+import PropTypes from "prop-types";
+
+
 
 export default function SvgBack({className}) {
   return (
@@ -50,3 +53,8 @@ export default function SvgBack({className}) {
     </div>
   );
 }
+
+SvgBack.propTypes = {
+  className: PropTypes.node,
+
+};

@@ -14,6 +14,7 @@ export default function Step1() {
   });
 
   function handleChange(event) {
+    event.preventDefault()
     const { id, value } = event.target;
     setFormData((prevData) => ({
       ...prevData,

@@ -12,6 +12,7 @@ export const ActionContext = createContext({
 
 function summaryReducer(state, action) {
   if (action.type === "ADD_SUMMARY") {
+    console.log("Adding summary:", action.payload); // Add this line
     const updatedSummary = [...state.summarys];
     updatedSummary.push({
       summary: action.payload,
@@ -59,11 +60,12 @@ const ActionProvider = ({ children }) => {
     dispatch({ type: "ADD_SUMMARY", payload: summary });
   }
   function handlePlan(plan) {
-    dispatch({ tyoe: "ADD_PLAN", payload: plan });
+    dispatch({ type: "ADD_PLAN", payload: plan });
   }
   function handleInfo(info) {
-    dispatch({ tyoe: "ADD_INFO", payload: info });
+    dispatch({ type: "ADD_INFO", payload: info });
   }
+  
   const smmValue = {
     summarys: multiformState.summarys,
     plans: multiformState.plans,

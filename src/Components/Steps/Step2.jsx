@@ -14,12 +14,12 @@ export default function Step2() {
 
   function handleActive(id) {
     setActiveState((prevState) => ({
-      ...Object.fromEntries(
-        Object.keys(prevState).map((key) => [key, key === id])
-      ),
+      // keep all the state of the others
+      ...prevState,
+      [id]: !prevState[id], // Toggle the state of the clicked option
     }));
   }
-  
+
   function handleSubmit(event) {
     event.preventDefault();
     if (activeState.one) {
@@ -42,6 +42,8 @@ export default function Step2() {
       updatePlan(item);
     }
   }
+
+  const btnDisabled = !Object.values(activeState).some((state) => state);
   return (
     <div className="space-y-10 py-10 h-full">
       <HeadStep
@@ -159,7 +161,12 @@ export default function Step2() {
           <Link to="/" className="px-4 py-3">
             Go Back
           </Link>
-          <Button type="submit" butName="Next Step" link="/stepthree" />
+          <Button
+            type="submit"
+            butName="Next Step"
+            link="/stepthree"
+            disable={btnDisabled}
+          />
         </div>
       </form>
     </div>

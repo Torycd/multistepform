@@ -1,18 +1,20 @@
 import PropTypes from "prop-types";
 import { createContext, useReducer } from "react";
 
+
 export const ActionContext = createContext({
   summarys: [],
   plans: [],
   infos: [],
   updateSummary: () => {},
   updatePlan: () => {},
-  updateInfo: () => {}, // You can provide a default function if needed
+  updateInfo: () => {},
 });
+
 
 function summaryReducer(state, action) {
   if (action.type === "ADD_SUMMARY") {
-    console.log("Adding summary:", action.payload); // Add this line
+    console.log("Adding summary:", action.payload); 
     const updatedSummary = [...state.summarys];
     updatedSummary.push({
       summary: action.payload,
@@ -23,6 +25,14 @@ function summaryReducer(state, action) {
       summarys: updatedSummary,
     };
   }
+  // if (action.type === "ADD_SUMMARY") {
+  //   console.log("Adding summary:", action.payload); 
+  //   return {
+  //     ...state,
+  //     summarys: [...state.summarys, { summary: action.payload }],
+  //   };
+  // }
+  
   if (action.type === "ADD_PLAN") {
     const updatedPlan = [...state.plans];
     updatedPlan.push({
@@ -46,7 +56,6 @@ function summaryReducer(state, action) {
     };
   }
 
-  // Need to return state for the default case
   return state;
 }
 

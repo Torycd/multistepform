@@ -1,6 +1,6 @@
-// Step1.js
 import { useState, useContext } from "react";
 import { ActionContext } from "../Store";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import Button from "../UI/Button";
 import HeadStep from "../UI/HeadStep";
 import Input from "../UI/Input";
@@ -12,9 +12,9 @@ export default function Step1() {
     email: "",
     number: "",
   });
+  const [formSubmitted, setFormSubmitted] = useState(false); // Add state for form submission
 
   function handleChange(event) {
-    event.preventDefault()
     const { id, value } = event.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -24,8 +24,12 @@ export default function Step1() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    updateSummary(formData); // Update context's state
-    // onNext(formData);
+    console.log("Form submitted");
+    const { name, email, number } = formData;
+    const summaryData = { name, email, number };
+    console.log("Summary data:", summaryData);
+    updateSummary(summaryData);
+    setFormSubmitted(true);
   }
 
   return (
@@ -34,6 +38,7 @@ export default function Step1() {
         heading="Personal Info"
         subHeading="Please provide your name, email address, and phone number."
       />
+      
       <form
         onSubmit={handleSubmit}
         className="flex flex-col justify-between gap-10"
@@ -58,16 +63,21 @@ export default function Step1() {
             onChange={handleChange}
           />
         </div>
-        <div className="flex justify-end">
-          <Button
-            type="submit"
-            link="/steptwo"
-            butName="Next Step"
-            disable={!formData.name || !formData.email || !formData.number}
-          />
-        </div>
+        {!formSubmitted ? (
+          <div className="flex justify-end">
+            <Button
+              type="submit"
+              butName="Next Step"
+              disable={!formData.name || !formData.email || !formData.number}
+            />
+          </div>
+        ) : (
+          <div className="flex justify-end">
+            <Link className="bg-[#3e52a3] px-4 py-3 rounded-lg text-white" to="/next-page">Go to Next Page</Link>{" "}
+            {/* Link to next page */}
+          </div>
+        )}
       </form>
-      
     </div>
   );
 }

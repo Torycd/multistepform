@@ -15,7 +15,7 @@ export default function Step4() {
       <div className="bg-slate-200 p-5 rounded-lg space-y-3 text-xl font-bold ">
         <ul className="border-b border-black">
           {plans.map((item, index) => (
-            <li key={index} className="flex justify-between py-5">
+            <li key={index} className="flex justify-between py-5 opacity-70">
               <h2>{item.plans.name}</h2>
               <p>{item.plans.price}</p>
             </li>
@@ -24,7 +24,7 @@ export default function Step4() {
 
         <ul>
           {infos.map((item, index) => (
-            <li key={index} className="space-y-3 py-5">
+            <li key={index} className="space-y-3 py-5  opacity-70">
               {item.infos.onlineService ? (
                 <div className="flex justify-between">
                   <h2>Online Service:</h2>

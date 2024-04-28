@@ -51,7 +51,7 @@ export default function SvgBack({ className }) {
         </svg>
       </div>
       <div>
-        
+        .
       </div>
     </>
   );

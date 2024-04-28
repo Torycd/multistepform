@@ -194,7 +194,7 @@ export default function Step2() {
               </g>
             </svg>
           </div>
-          <p className="text-center">
+          <p className="text-center text-xl">
               Congratulation, proceed to next step!
             </p>
           <div className="flex justify-end">

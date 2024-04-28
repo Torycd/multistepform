@@ -116,7 +116,7 @@ export default function Step3() {
               </g>
             </svg>
           </div>
-          <p className="text-center">Congratulation, proceed to next step!</p>
+          <p className="text-center text-xl">Congratulation, proceed to next step!</p>
           <div className="flex justify-end">
             <Link
               className="bg-[#3e52a3] px-4 py-3 rounded-lg text-white"

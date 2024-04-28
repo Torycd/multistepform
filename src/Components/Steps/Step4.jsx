@@ -4,8 +4,9 @@ import HeadStep from "../UI/HeadStep";
 import Button from "../UI/Button";
 
 export default function Step4() {
-  const { summarys, plans } = useContext(ActionContext);
+  const { summarys, plans, infos } = useContext(ActionContext);
   console.log(plans)
+  console.log(infos)
   console.log(summarys) // Destructure summarys and plans from the context
 
   return (

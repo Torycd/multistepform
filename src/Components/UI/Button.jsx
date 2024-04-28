@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 // import { Link } from "react-router-dom";
 
-export default function Button({ type, butName, disable }) {
+export default function Button({ type, butName, disable, ...props }) {
   return (
     <>
       <button
@@ -12,6 +12,7 @@ export default function Button({ type, butName, disable }) {
             : "bg-[#3e52a3] px-4 py-3 rounded-lg text-white"
         }
         disabled={disable ? disable : null}
+        {...props}
       >
         {/* <Link to={link}>{butName}</Link> */}
         {butName}

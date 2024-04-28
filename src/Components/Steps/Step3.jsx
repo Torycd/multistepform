@@ -2,11 +2,10 @@ import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import HeadStep from "../UI/HeadStep";
 import Button from "../UI/Button";
-
 import { ActionContext } from "../Store";
 
 export default function Step3() {
-  const { updateInfo } = useContext(ActionContext); // Assuming updateInfo function is available in your context
+  const { updateInfo } = useContext(ActionContext);
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   const [selectedCheckboxes, setSelectedCheckboxes] = useState({
@@ -96,22 +95,18 @@ export default function Step3() {
               type="button"
               butName="Next Step"
               onClick={handleSubmit}
-              link="/stepfour"
             />
           </div>
         </div>
       ) : (
-        <>
-          <div className="flex flex-col justify-between gap-10"></div>
-          <div className="flex justify-end">
-            <Link
-              className="bg-[#3e52a3] px-4 py-3 rounded-lg text-white"
-              to="/steptwo"
-            >
-              Go to Next Page
-            </Link>{" "}
-          </div>
-        </>
+        <div className="flex justify-end">
+          <Link
+            className="bg-[#3e52a3] px-4 py-3 rounded-lg text-white"
+            to="/stepfour"
+          >
+            Go to Next Page
+          </Link>
+        </div>
       )}
     </div>
   );

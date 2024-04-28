@@ -5,20 +5,36 @@ import Button from "../UI/Button";
 
 export default function Step4() {
   const { summarys, plans, infos } = useContext(ActionContext);
-  console.log(plans)
-  console.log(infos)
-  console.log(summarys) // Destructure summarys and plans from the context
-
+  
   return (
     <div className="space-y-10 py-10 h-full">
       <HeadStep heading="Finishing up" subHeading="Double-check everything looks before confirming"/>
+      {/* Rendering plans */}
+      <ul>
+        {plans.map((item, index) => (
+          <li key={index}>
+            <h2>{item.plans.name}</h2>
+            <p>{item.plans.price}</p>
+          </li>
+        ))}
+      </ul>
+      {/* Rendering infos */}
+      <ul>
+        {infos.map((item, index) => (
+          <li key={index}>
+            <h2>Online Service: {item.infos.onlineService ? "Yes" : "No"}</h2>
+            <h2>Larger Storage: {item.infos.largerStorage ? "Yes" : "No"}</h2>
+            <h2>Customizable Profile: {item.infos.customizableProfile ? "Yes" : "No"}</h2>
+          </li>
+        ))}
+      </ul>
+      {/* Rendering summarys */}
       <ul>
         {summarys.map((item, index) => (
           <li key={index}>
-            <h2>{item.summary.name}</h2> {/* Corrected access to summary item properties */}
-            <p>{item.summary.price}</p>
-            {/* You may need to adjust the property names according to your data structure */}
-            {/* Make sure to use item.plans or item.infos similarly if needed */}
+            <h2>Name: {item.summary.name}</h2>
+            <p>Email: {item.summary.email}</p>
+            <p>Phone Number: {item.summary.number}</p>
           </li>
         ))}
       </ul>

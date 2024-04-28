@@ -65,9 +65,9 @@ export default function Step4() {
             </li>
           ))}
         </ul>
-        <div>
+        <div className="flex justify-between opacity-70">
           <h2>Total Price:</h2>
-          <p>{totalPrice}</p>
+          <p>${totalPrice}/mo</p>
         </div>
       </div>
       <button type="submit" className="bg-[#3e52a3] px-4 py-3 rounded-lg text-white">

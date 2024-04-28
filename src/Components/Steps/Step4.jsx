@@ -30,7 +30,7 @@ export default function Step4() {
           {plans.map((item, index) => (
             <li key={index} className="flex justify-between py-5 opacity-70">
               <h2>{item.plans.name}</h2>
-              <p>{item.plans.price}</p>
+              <p>${item.plans.price}/mo</p>
             </li>
           ))}
         </ul>

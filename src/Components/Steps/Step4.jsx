@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { ActionContext } from "../Store";
 import HeadStep from "../UI/HeadStep";
-import Button from "../UI/Button";
+// import Button from "../UI/Button";
+import { Link } from "react-router-dom";
 
 export default function Step4() {
-  const { summarys, plans, infos } = useContext(ActionContext);
+  const { plans, infos } = useContext(ActionContext);
 
   return (
     <div className="space-y-10 py-10 h-full">
@@ -52,7 +53,7 @@ export default function Step4() {
             </li>
           ))}
         </ul>
-        <ul>
+        {/* <ul>
           {summarys.map((item, index) => (
             <li key={index}>
               <h2>Name: {item.summary.name}</h2>
@@ -60,10 +61,16 @@ export default function Step4() {
               <p>Phone Number: {item.summary.number}</p>
             </li>
           ))}
-        </ul>
+        </ul> */}
       </div>
-
-      <Button type="submit" butName="Confirm" link="/Congratulation" />
+      <button
+        type="submit"
+        className="bg-[#3e52a3] px-4 py-3 rounded-lg text-white"
+        
+      >
+        <Link to="/Congratulation">Confirm</Link>
+        
+      </button>
     </div>
   );
 }

@@ -1,11 +1,23 @@
 import { useContext } from "react";
 import { ActionContext } from "../Store";
 import HeadStep from "../UI/HeadStep";
-// import Button from "../UI/Button";
 import { Link } from "react-router-dom";
 
 export default function Step4() {
   const { plans, infos } = useContext(ActionContext);
+
+
+  const totalPlanPrice = plans.reduce((acc, item) => acc + item.plans.price, 0);
+
+  const totalOptionPrice = infos.reduce((acc, item) => {
+    let optionPrice = 0;
+    if (item.infos.onlineService) optionPrice += 1;
+    if (item.infos.largerStorage) optionPrice += 2;
+    if (item.infos.customizableProfile) optionPrice += 3;
+    return acc + optionPrice;
+  }, 0);
+
+  const totalPrice = totalPlanPrice + totalOptionPrice;
 
   return (
     <div className="space-y-10 py-10 h-full">
@@ -53,23 +65,13 @@ export default function Step4() {
             </li>
           ))}
         </ul>
-        {/* <ul>
-          {summarys.map((item, index) => (
-            <li key={index}>
-              <h2>Name: {item.summary.name}</h2>
-              <p>Email: {item.summary.email}</p>
-              <p>Phone Number: {item.summary.number}</p>
-            </li>
-          ))}
-        </ul> */}
+        <div>
+          <h2>Total Price:</h2>
+          <p>{totalPrice}</p>
+        </div>
       </div>
-      <button
-        type="submit"
-        className="bg-[#3e52a3] px-4 py-3 rounded-lg text-white"
-        
-      >
+      <button type="submit" className="bg-[#3e52a3] px-4 py-3 rounded-lg text-white">
         <Link to="/Congratulation">Confirm</Link>
-        
       </button>
     </div>
   );

@@ -1,5 +1,3 @@
-// import HeadStep from "./UI/HeadStep";
-
 export default function CongratulationCompo() {
   return (
     <div className="py-10 h-full flex justify-center items-center">

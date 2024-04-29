@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 export default function Step4() {
   const { plans, infos } = useContext(ActionContext);
 
-
   const totalPlanPrice = plans.reduce((acc, item) => acc + item.plans.price, 0);
 
   const totalOptionPrice = infos.reduce((acc, item) => {
@@ -70,7 +69,10 @@ export default function Step4() {
           <p>${totalPrice}/mo</p>
         </div>
       </div>
-      <button type="submit" className="bg-[#3e52a3] px-4 py-3 rounded-lg text-white">
+      <button
+        type="submit"
+        className="bg-[#3e52a3] px-4 py-3 rounded-lg text-white"
+      >
         <Link to="/Congratulation">Confirm</Link>
       </button>
     </div>

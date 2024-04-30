@@ -23,8 +23,8 @@ export default function Step4({ onComplete }) {
     onComplete();
   };
   const handleChange = () => {
-    setIsYearlyBilling(!isYearlyBilling)
-  }
+    setIsYearlyBilling(!isYearlyBilling);
+  };
   return (
     <div className="space-y-10 py-10 h-full">
       <HeadStep
@@ -35,14 +35,20 @@ export default function Step4({ onComplete }) {
         <ul className="border-b border-black">
           {plans.map((item, index) => (
             <>
-            <li
-              key={index}
-              className="flex justify-between py-5 text-xl opacity-70"
-            >
-              <h2>{item.plans.name}</h2>
-              <p>{isYearlyBilling ? `${item.plans.price * 10}/yr` :  `${item.plans.price}/mo` }</p>
-            </li>
-            <button className="underline" onClick={handleChange}>Change</button>
+              <li
+                key={index}
+                className="flex justify-between py-5 text-xl opacity-70"
+              >
+                <h2>{item.plans.name}</h2>
+                <p>
+                  {isYearlyBilling
+                    ? `$${item.plans.price * 10}/yr`
+                    : `$${item.plans.price}/mo`}
+                </p>
+              </li>
+              <button className="underline opacity-30" onClick={handleChange}>
+                Change
+              </button>
             </>
           ))}
         </ul>
@@ -80,12 +86,18 @@ export default function Step4({ onComplete }) {
       </div>
       <div className="flex justify-between opacity-70 font-bold">
         <h2 className="text-[16px] opacity-50">Total (Per Month)</h2>
-        <p className="text-blue-800 text-xl">{isYearlyBilling ? `$${totalPrice * 10}/yr`: `$${totalPrice}/mo`}</p>
+        <p className="text-blue-800 text-xl">
+          {isYearlyBilling ? `$${totalPrice * 10}/yr` : `$${totalPrice}/mo`}
+        </p>
       </div>
-      <div className="flex justify-between">
-      <button to="/steptwo" className="px-4 py-3" onClick={moveToPreviousStep}>
-              Go Back
-            </button>
+      <div className="flex justify-between font-bold">
+        <button
+          to="/steptwo"
+          className="px-4 py-3"
+          onClick={moveToPreviousStep}
+        >
+          Go Back
+        </button>
         <Button type="submit" butName="Confirm" onClick={handleFinish} />
       </div>
     </div>

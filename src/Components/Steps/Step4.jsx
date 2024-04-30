@@ -5,7 +5,7 @@ import HeadStep from "../UI/HeadStep";
 import Button from "../UI/Button";
 
 export default function Step4({ onComplete }) {
-  const { plans, infos, currentStep } = useContext(ActionContext);
+  const { plans, infos, changeStep } = useContext(ActionContext);
 
   const totalPlanPrice = plans.reduce((acc, item) => acc + item.plans.price, 0);
 
@@ -22,7 +22,7 @@ export default function Step4({ onComplete }) {
     onComplete();
   };
   const handleChange = () => {
-    currentStep = 2
+    changeStep()
   }
   return (
     <div className="space-y-10 py-10 h-full">

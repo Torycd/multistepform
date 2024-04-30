@@ -1,10 +1,12 @@
 import { Outlet } from "react-router-dom";
-import { Suspense, useState, useEffect } from "react";
+import { Suspense, useState, useEffect, useContext } from "react";
 import Indicator from "./Components/Indicator";
+import { ActionContext } from "./Components/Store";
 import LoadingIndicator from "./Components/UI/LoadingIndicator";
 import SvgBack from "./Components/Steps/Svgback";
 
 export default function HomePage() {
+  const { currentStep } = useContext(ActionContext)
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -24,7 +26,7 @@ export default function HomePage() {
               <SvgBack />
             </div>
             <div className="relative z-10">
-              <Indicator />
+              <Indicator currentStep={currentStep}  />
             </div>
           </div>
 

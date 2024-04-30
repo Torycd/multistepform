@@ -3,11 +3,11 @@ import Button from "../UI/Button";
 import HeadStep from "../UI/HeadStep";
 import { useState, useContext } from "react";
 import { ActionContext } from "../Store";
-import CongratStep from "./CongratStep";
 
-export default function Step2() {
+
+export default function Step2({onComplete}) {
   const { updatePlan } = useContext(ActionContext);
-  const [formSubmitted, setFormSubmitted] = useState(false);
+
   const [activeState, setActiveState] = useState({
     one: false,
     two: false,
@@ -43,7 +43,7 @@ export default function Step2() {
       };
       updatePlan(item);
     }
-    setFormSubmitted(true);
+    onComplete()
   }
 
   const btnDisabled = !Object.values(activeState).some((state) => state);
@@ -53,7 +53,6 @@ export default function Step2() {
         heading="Select your plan"
         subHeading="You have the option of monthly or yearly billing."
       />
-      {!formSubmitted ? (
         <form
           className="flex flex-col justify-between gap-10"
           onSubmit={handleSubmit}
@@ -168,24 +167,11 @@ export default function Step2() {
             <Button
               type="submit"
               butName="Next Step"
-              link="/stepthree"
               disable={btnDisabled}
             />
           </div>
         </form>
-      ) : (
-        <>
-          <CongratStep/>
-          <div className="flex justify-end">
-            <Link
-              className="bg-[#3e52a3] px-4 py-3 rounded-lg text-white"
-              to="/stepthree"
-            >
-              Go to Next Page
-            </Link>{" "}
-          </div>
-        </>
-      )}
+      
     </div>
   );
 }

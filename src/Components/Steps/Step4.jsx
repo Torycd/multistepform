@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { ActionContext } from "../Store";
 import HeadStep from "../UI/HeadStep";
-import { Link } from "react-router-dom";
+import Button from "../UI/Button";
 
-export default function Step4() {
+export default function Step4({onComplete}) {
   const { plans, infos } = useContext(ActionContext);
 
   const totalPlanPrice = plans.reduce((acc, item) => acc + item.plans.price, 0);
@@ -17,6 +17,9 @@ export default function Step4() {
   }, 0);
 
   const totalPrice = totalPlanPrice + totalOptionPrice;
+  const handleFinish = () => {
+    onComplete()
+  }
 
   return (
     <div className="space-y-10 py-10 h-full">
@@ -69,12 +72,13 @@ export default function Step4() {
           <p>${totalPrice}/mo</p>
         </div>
       </div>
-      <button
+      <Button
         type="submit"
         className="bg-[#3e52a3] px-4 py-3 rounded-lg text-white"
+        onClick={handleFinish}
       >
-        <Link to="/Congratulation">Confirm</Link>
-      </button>
+        Confirm
+      </Button>
     </div>
   );
 }

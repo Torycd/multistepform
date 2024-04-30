@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { createContext, useReducer } from "react";
+import { createContext, useReducer, useState } from "react";
 
 // Define the shapes of the context
 export const ActionContext = createContext({
@@ -15,9 +15,13 @@ export const ActionContext = createContext({
   updatePlan: () => {},
   // define the fuction for updating infos
   updateInfo: () => {},
+  // current step
+  currentStep: 1,
+  // function to move to the next step
+  moveToNextStep: () => {},
 });
 
-
+// to handle multiple state and actions
 function summaryReducer(state, action) {
   if (action.type === "ADD_SUMMARY") {
     // console.log("Adding summary:", action.payload); 
@@ -31,7 +35,7 @@ function summaryReducer(state, action) {
       summarys: updatedSummary,
     };
   }
-  
+   
   if (action.type === "ADD_PLAN") {
     const updatedPlan = [...state.plans];
     updatedPlan.push({
@@ -65,16 +69,25 @@ const ActionProvider = ({ children }) => {
     plans: [],
     infos: [],
   });
+
+  const [currentStep, setCurrentStep] = useState(1);
+
   function handleSummary(summary) {
     dispatch({ type: "ADD_SUMMARY", payload: summary });
   }
+  
   function handlePlan(plan) {
     dispatch({ type: "ADD_PLAN", payload: plan });
   }
+  
   function handleInfo(info) {
     dispatch({ type: "ADD_INFO", payload: info });
   }
   
+  function moveToNextStep() {
+    setCurrentStep((prevStep) => prevStep + 1);
+  }
+
   // this is the value sent to the wrappper to make it available
   const smmValue = {
     summarys: multiformState.summarys,
@@ -83,6 +96,8 @@ const ActionProvider = ({ children }) => {
     updateSummary: handleSummary,
     updatePlan: handlePlan,
     updateInfo: handleInfo,
+    currentStep,
+    moveToNextStep,
   };
 
   return (

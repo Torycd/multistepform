@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 
-export default function StepNav({ stage, info, navlink }) {
+export default function StepNav({ stage, info}) {
   return (
     <div className="flex gap-2">
-      <NavLink
-        to={`/${navlink}`}
+      <div
+        // to={`/${navlink}`}
         className={({ isActive }) =>
           isActive
             ? "w-12 h-12 rounded-full border-2 flex items-center bg-[#B4E7FF] text-black"
@@ -14,7 +14,7 @@ export default function StepNav({ stage, info, navlink }) {
         end
       >
         <p className="mx-auto text-xl">{stage}</p>
-      </NavLink>
+      </div>
       <div className="font-bold">
         <p className="opacity-90">STEP {stage}</p>
         <p className="uppercase">{info}</p>

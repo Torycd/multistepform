@@ -3,11 +3,9 @@ import { Link } from "react-router-dom";
 import HeadStep from "../UI/HeadStep";
 import Button from "../UI/Button";
 import { ActionContext } from "../Store";
-import CongratStep from "./CongratStep";
 
-export default function Step3() {
+export default function Step3({onComplete}) {
   const { updateInfo } = useContext(ActionContext);
-  const [formSubmitted, setFormSubmitted] = useState(false);
 
   const [selectedCheckboxes, setSelectedCheckboxes] = useState({
     onlineService: false,
@@ -30,7 +28,7 @@ export default function Step3() {
     };
 
     updateInfo(selectedInfo);
-    setFormSubmitted(true);
+    onComplete();
   };
 
   return (
@@ -39,7 +37,7 @@ export default function Step3() {
         heading="Personal Info"
         subHeading="Add-ons help enhance your gaming experience."
       />
-      {!formSubmitted ? (
+
         <div className="flex flex-col gap-2">
           {/* Checkbox for Online Service */}
           <div className="flex justify-between p-5 rounded-lg border-2 hover:bg-gray-300">
@@ -95,19 +93,7 @@ export default function Step3() {
             <Button type="button" butName="Next Step" onClick={handleSubmit} />
           </div>
         </div>
-      ) : (
-        <>
-          <CongratStep/>
-          <div className="flex justify-end">
-            <Link
-              className="bg-[#3e52a3] px-4 py-3 rounded-lg text-white"
-              to="/stepfour"
-            >
-              Go to Next Page
-            </Link>
-          </div>
-        </>
-      )}
+      
     </div>
   );
 }

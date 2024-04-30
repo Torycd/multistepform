@@ -22,7 +22,7 @@ export default function HomePage() {
       <div className="max-w-[1080px] sm:bg-white rounded-lg sm:mx-auto md:p-10">
         <div className="flex flex-col md:flex-row md:gap-10 h-full relative">
           {/* side and top display */}
-          <div className="w-full sm:w-[40%] ">
+          <div className="w-full sm:w-[40%] relative">
             <div className="sm:absolute sm:inset-0">
               <SvgBack className="sm:absolute sm:inset-0" />
             </div>

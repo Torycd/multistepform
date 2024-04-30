@@ -41,7 +41,7 @@ export default function Step4({ onComplete }) {
               <h2>{item.plans.name}</h2>
               <p>${item.plans.price}/mo</p>
             </li>
-            <button onClick={handleChange}>Change</button>
+            <button className="underline" onClick={handleChange}>Change</button>
             </>
           ))}
         </ul>

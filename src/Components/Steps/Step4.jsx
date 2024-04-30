@@ -5,7 +5,7 @@ import HeadStep from "../UI/HeadStep";
 import Button from "../UI/Button";
 
 export default function Step4({ onComplete }) {
-  const { plans, infos } = useContext(ActionContext);
+  const { plans, infos, moveToPreviousStep } = useContext(ActionContext);
   const [isYearlyBilling, setIsYearlyBilling] = useState(false);
 
   const totalPlanPrice = plans.reduce((acc, item) => acc + item.plans.price, 0);
@@ -80,9 +80,12 @@ export default function Step4({ onComplete }) {
       </div>
       <div className="flex justify-between opacity-70 font-bold">
         <h2 className="text-[16px] opacity-50">Total (Per Month)</h2>
-        <p className="text-blue-800 text-xl">{isYearlyBilling ? `${totalPrice * 10}/yr`: `${totalPrice}/mo`}</p>
+        <p className="text-blue-800 text-xl">{isYearlyBilling ? `$${totalPrice * 10}/yr`: `$${totalPrice}/mo`}</p>
       </div>
-      <div className="flex justify-end">
+      <div className="flex justify-between">
+      <button to="/steptwo" className="px-4 py-3" onClick={moveToPreviousStep}>
+              Go Back
+            </button>
         <Button type="submit" butName="Confirm" onClick={handleFinish} />
       </div>
     </div>

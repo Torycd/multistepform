@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import { createContext, useReducer, useState } from "react";
 
-
 export const ActionContext = createContext({
   summarys: [],
   plans: [],
@@ -14,10 +13,8 @@ export const ActionContext = createContext({
   moveToPreviousStep: () => {},
 });
 
-// to handle multiple state and actions
 function summaryReducer(state, action) {
   if (action.type === "ADD_SUMMARY") {
-    // console.log("Adding summary:", action.payload); 
     const updatedSummary = [...state.summarys];
     updatedSummary.push({
       summary: action.payload,
@@ -84,9 +81,7 @@ const ActionProvider = ({ children }) => {
   function moveToPreviousStep() {
     setCurrentStep((prevStep) => prevStep - 1);
   }
-  
 
-  // this is the value sent to the wrapper to make it available
   const smmValue = {
     summarys: multiformState.summarys,
     plans: multiformState.plans,

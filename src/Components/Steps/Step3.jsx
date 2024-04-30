@@ -41,7 +41,7 @@ export default function Step3({onComplete}) {
 
         <div className="flex flex-col gap-2">
           {/* Checkbox for Online Service */}
-          <div className="flex justify-between p-5 rounded-lg border-2 hover:bg-gray-300">
+          <div className="flex justify-between p-5 rounded-lg border-2 border-blue-800 hover:bg-gray-300">
             <div className="flex gap-10">
               <input
                 type="checkbox"
@@ -56,7 +56,7 @@ export default function Step3({onComplete}) {
             <p>+$1/mo</p>
           </div>
           {/* Checkbox for Larger Storage */}
-          <div className="flex justify-between p-5 rounded-lg border-2 hover:bg-gray-300">
+          <div className="flex justify-between p-5 rounded-lg border-2 border-blue-800 hover:bg-gray-300">
             <div className="flex gap-10">
               <input
                 type="checkbox"
@@ -71,7 +71,7 @@ export default function Step3({onComplete}) {
             <p>+$2/mo</p>
           </div>
           {/* Checkbox for Customizable Profile */}
-          <div className="flex justify-between p-5 rounded-lg border-2 hover:bg-gray-300">
+          <div className="flex justify-between p-5 rounded-lg border-2 border-blue-800 hover:bg-gray-300">
             <div className="flex gap-10">
               <input
                 type="checkbox"

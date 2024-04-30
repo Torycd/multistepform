@@ -32,8 +32,8 @@ export default function Step4({ onComplete }) {
         <ul className="border-b border-black">
           {plans.map((item, index) => (
             <li key={index} className="flex justify-between py-5 opacity-70">
-              <h2>{item.plans.name}</h2>
-              <p>${item.plans.price}/mo</p>
+              <h2 className="text-[16px]">{item.plans.name}</h2>
+              <p className="text-xl">${item.plans.price}/mo</p>
             </li>
           ))}
         </ul>
@@ -43,7 +43,7 @@ export default function Step4({ onComplete }) {
             <li key={index} className="space-y-3 py-5  opacity-70">
               {item.infos.onlineService ? (
                 <div className="flex justify-between">
-                  <h2>Online Service:</h2>
+                  <h2 >Online Service:</h2>
                   <span>
                     <p>+$1/mo</p>
                   </span>

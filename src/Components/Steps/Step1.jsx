@@ -24,7 +24,6 @@ export default function Step1({onComplete}) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log("Form submitted");
     const { name, email, number } = formData;
     const summaryData = { name, email, number };
     console.log("Summary data:", summaryData);

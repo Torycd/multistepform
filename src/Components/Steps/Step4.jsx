@@ -1,11 +1,12 @@
 import PropTypes from "prop-types";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ActionContext } from "../Store";
 import HeadStep from "../UI/HeadStep";
 import Button from "../UI/Button";
 
 export default function Step4({ onComplete }) {
-  const { plans, infos, changeStep } = useContext(ActionContext);
+  const { plans, infos } = useContext(ActionContext);
+  const [isYearlyBilling, setIsYearlyBilling] = useState(false);
 
   const totalPlanPrice = plans.reduce((acc, item) => acc + item.plans.price, 0);
 
@@ -22,7 +23,7 @@ export default function Step4({ onComplete }) {
     onComplete();
   };
   const handleChange = () => {
-    changeStep()
+    setIsYearlyBilling(!isYearlyBilling)
   }
   return (
     <div className="space-y-10 py-10 h-full">
@@ -39,7 +40,7 @@ export default function Step4({ onComplete }) {
               className="flex justify-between py-5 text-xl opacity-70"
             >
               <h2>{item.plans.name}</h2>
-              <p>${item.plans.price}/mo</p>
+              <p>{isYearlyBilling ? `${item.plans.price * 10}/yr` :  `${item.plans.price}/mo` }</p>
             </li>
             <button className="underline" onClick={handleChange}>Change</button>
             </>
@@ -53,7 +54,7 @@ export default function Step4({ onComplete }) {
                 <div className="flex justify-between">
                   <h2>Online Service:</h2>
                   <span>
-                    <p>+$1/mo</p>
+                    <p>{isYearlyBilling ? "+$10/yr" : "+$1/mo"}</p>
                   </span>
                 </div>
               ) : null}
@@ -61,7 +62,7 @@ export default function Step4({ onComplete }) {
                 <div className="flex justify-between">
                   <h2>Larger Storage:</h2>
                   <span>
-                    <p>+$2/mo</p>
+                    <p>{isYearlyBilling ? "+$20/mo" : "+$2/mo"}</p>
                   </span>
                 </div>
               ) : null}
@@ -69,7 +70,7 @@ export default function Step4({ onComplete }) {
                 <div className="flex justify-between">
                   <h2>Customizable Profile:</h2>
                   <span>
-                    <p>+$3/mo</p>
+                    <p>{isYearlyBilling ? "+$30/mo" : "+$3/mo"}</p>
                   </span>
                 </div>
               ) : null}
@@ -79,7 +80,7 @@ export default function Step4({ onComplete }) {
       </div>
       <div className="flex justify-between opacity-70 font-bold">
         <h2 className="text-[16px] opacity-50">Total (Per Month)</h2>
-        <p className="text-blue-800 text-xl">${totalPrice}/mo</p>
+        <p className="text-blue-800 text-xl">{isYearlyBilling ? `${totalPrice * 10}/yr`: `${totalPrice}/mo`}</p>
       </div>
       <div className="flex justify-end">
         <Button type="submit" butName="Confirm" onClick={handleFinish} />

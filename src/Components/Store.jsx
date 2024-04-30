@@ -12,7 +12,6 @@ export const ActionContext = createContext({
   currentStep: 1,
   moveToNextStep: () => {},
   moveToPreviousStep: () => {},
-  changeStep: () => {}
 });
 
 // to handle multiple state and actions
@@ -85,9 +84,7 @@ const ActionProvider = ({ children }) => {
   function moveToPreviousStep() {
     setCurrentStep((prevStep) => prevStep - 1);
   }
-  function changeStep (){
-    setCurrentStep(2)
-  }
+  
 
   // this is the value sent to the wrapper to make it available
   const smmValue = {
@@ -100,7 +97,6 @@ const ActionProvider = ({ children }) => {
     currentStep,
     moveToNextStep,
     moveToPreviousStep,
-    changeStep
   };
 
   return (

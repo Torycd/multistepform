@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Button from "../UI/Button";
 import HeadStep from "../UI/HeadStep";
 import { useState, useContext } from "react";
@@ -7,7 +7,7 @@ import { ActionContext } from "../Store";
 
 
 export default function Step2({onComplete}) {
-  const { updatePlan } = useContext(ActionContext);
+  const { updatePlan, moveToPreviousStep } = useContext(ActionContext);
 
   const [activeState, setActiveState] = useState({
     one: false,
@@ -162,9 +162,9 @@ export default function Step2({onComplete}) {
             </div>
           </div>
           <div className="flex justify-between font-bold">
-            <Link to="/" className="px-4 py-3">
+            <button to="/" className="px-4 py-3" onClick={moveToPreviousStep}>
               Go Back
-            </Link>
+            </button>
             <Button
               type="submit"
               butName="Next Step"

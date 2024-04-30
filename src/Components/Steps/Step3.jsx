@@ -1,12 +1,11 @@
 import PropTypes from "prop-types";
 import { useState, useContext } from "react";
-import { Link } from "react-router-dom";
 import HeadStep from "../UI/HeadStep";
 import Button from "../UI/Button";
 import { ActionContext } from "../Store";
 
 export default function Step3({onComplete}) {
-  const { updateInfo } = useContext(ActionContext);
+  const { updateInfo, moveToPreviousStep } = useContext(ActionContext);
 
   const [selectedCheckboxes, setSelectedCheckboxes] = useState({
     onlineService: false,
@@ -87,9 +86,9 @@ export default function Step3({onComplete}) {
           </div>
           {/* Navigation buttons */}
           <div className="flex justify-between font-bold">
-            <Link to="/steptwo" className="px-4 py-3">
+            <button to="/steptwo" className="px-4 py-3" onClick={moveToPreviousStep}>
               Go Back
-            </Link>
+            </button>
             {/* Button to submit and navigate to the next step */}
             <Button type="button" butName="Next Step" onClick={handleSubmit} />
           </div>

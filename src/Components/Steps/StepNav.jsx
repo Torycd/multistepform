@@ -9,7 +9,6 @@ export default function StepNav({ stage, info, isActive }) {
             ? "w-12 h-12 rounded-full border-2 flex items-center bg-[#B4E7FF] text-black"
             : "w-12 h-12 rounded-full border-2 flex items-center hover:bg-[#B4E7FF] hover:text-black"
         }
-        
       >
         <p className="mx-auto text-xl">{stage}</p>
       </div>

@@ -1,24 +1,18 @@
-import PropTypes from "prop-types";
+import PropTypes, { func } from "prop-types";
 import { createContext, useReducer, useState } from "react";
 
-// Define the shapes of the context
+
 export const ActionContext = createContext({
-  // an array for user details 
   summarys: [],
-  // an array for user plans
   plans: [],
-  // an array for users info
   infos: [],
-  // define the fuction for updating sumarys
   updateSummary: () => {},
-  // define the fuction for updating plans
   updatePlan: () => {},
-  // define the fuction for updating infos
   updateInfo: () => {},
-  // current step
   currentStep: 1,
-  // function to move to the next step
   moveToNextStep: () => {},
+  moveToPreviousStep: () => {},
+  changeStep: () => {}
 });
 
 // to handle multiple state and actions
@@ -87,8 +81,15 @@ const ActionProvider = ({ children }) => {
   function moveToNextStep() {
     setCurrentStep((prevStep) => prevStep + 1);
   }
+  
+  function moveToPreviousStep() {
+    setCurrentStep((prevStep) => prevStep - 1);
+  }
+  function changeStep (){
+    setCurrentStep(2)
+  }
 
-  // this is the value sent to the wrappper to make it available
+  // this is the value sent to the wrapper to make it available
   const smmValue = {
     summarys: multiformState.summarys,
     plans: multiformState.plans,
@@ -98,6 +99,8 @@ const ActionProvider = ({ children }) => {
     updateInfo: handleInfo,
     currentStep,
     moveToNextStep,
+    moveToPreviousStep,
+    changeStep
   };
 
   return (
@@ -105,8 +108,8 @@ const ActionProvider = ({ children }) => {
   );
 };
 
-export default ActionProvider;
-
 ActionProvider.propTypes = {
   children: PropTypes.node,
 };
+
+export default ActionProvider;

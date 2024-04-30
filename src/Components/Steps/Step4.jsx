@@ -5,7 +5,7 @@ import HeadStep from "../UI/HeadStep";
 import Button from "../UI/Button";
 
 export default function Step4({ onComplete }) {
-  const { plans, infos } = useContext(ActionContext);
+  const { plans, infos, currentStep } = useContext(ActionContext);
 
   const totalPlanPrice = plans.reduce((acc, item) => acc + item.plans.price, 0);
 
@@ -21,29 +21,37 @@ export default function Step4({ onComplete }) {
   const handleFinish = () => {
     onComplete();
   };
-
+  const handleChange = () => {
+    currentStep = 2
+  }
   return (
     <div className="space-y-10 py-10 h-full">
       <HeadStep
         heading="Finishing up"
         subHeading="Double-check everything looks before confirming"
       />
-      <div className="bg-slate-200 p-5 rounded-lg space-y-3 font-bold ">
+      <div className="bg-slate-100 p-5 rounded-lg space-y-3 font-bold ">
         <ul className="border-b border-black">
           {plans.map((item, index) => (
-            <li key={index} className="flex justify-between py-5 opacity-70">
-              <h2 className="text-[16px]">{item.plans.name}</h2>
-              <p className="text-xl">${item.plans.price}/mo</p>
+            <>
+            <li
+              key={index}
+              className="flex justify-between py-5 text-xl opacity-70"
+            >
+              <h2>{item.plans.name}</h2>
+              <p>${item.plans.price}/mo</p>
             </li>
+            <button onClick={handleChange}>Change</button>
+            </>
           ))}
         </ul>
 
-        <ul>
+        <ul className="text-[16px]">
           {infos.map((item, index) => (
-            <li key={index} className="space-y-3 py-5  opacity-70">
+            <li key={index} className="space-y-3 py-5 opacity-50">
               {item.infos.onlineService ? (
                 <div className="flex justify-between">
-                  <h2 >Online Service:</h2>
+                  <h2>Online Service:</h2>
                   <span>
                     <p>+$1/mo</p>
                   </span>
@@ -68,10 +76,10 @@ export default function Step4({ onComplete }) {
             </li>
           ))}
         </ul>
-        <div className="flex justify-between opacity-70">
-          <h2>Total Price:</h2>
-          <p>${totalPrice}/mo</p>
-        </div>
+      </div>
+      <div className="flex justify-between opacity-70 font-bold">
+        <h2 className="text-[16px] opacity-50">Total (Per Month)</h2>
+        <p className="text-blue-800 text-xl">${totalPrice}/mo</p>
       </div>
       <div className="flex justify-end">
         <Button type="submit" butName="Confirm" onClick={handleFinish} />
@@ -80,5 +88,5 @@ export default function Step4({ onComplete }) {
   );
 }
 Step4.propTypes = {
-  onComplete: PropTypes.func
-}
+  onComplete: PropTypes.func,
+};

@@ -27,7 +27,7 @@ export default function Indicator({ currentStep }) {
           stage="4"
           info="Summary"
           navlink="stepfour"
-          isActive={currentStep === 4}
+          isActive={currentStep === 4 || currentStep === 5}
         />
       </div>
     </div>

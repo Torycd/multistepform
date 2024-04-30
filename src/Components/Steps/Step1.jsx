@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useState, useContext } from "react";
 import { ActionContext } from "../Store";
 import Button from "../UI/Button";
@@ -74,4 +75,8 @@ export default function Step1({onComplete}) {
         </form>
     </div>
   );
+}
+
+Step1.propTypes = {
+  onComplete: PropTypes.func
 }

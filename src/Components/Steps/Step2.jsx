@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Button from "../UI/Button";
 import HeadStep from "../UI/HeadStep";
@@ -174,4 +175,8 @@ export default function Step2({onComplete}) {
       
     </div>
   );
+}
+
+Step2.propTypes = {
+  onComplete: PropTypes.func
 }

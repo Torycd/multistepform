@@ -14,7 +14,6 @@ export default function Button({ type, butName, disable, ...props }) {
         disabled={disable ? disable : null}
         {...props}
       >
-        {/* <Link to={link}>{butName}</Link> */}
         {butName}
       </button>
     </>

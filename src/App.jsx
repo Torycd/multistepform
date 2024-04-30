@@ -2,7 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ActionProvider from "./Components/Store";
 import HomePage from "./HomePage";
 import { StepNavigator } from "./Components/stepNavgator"
-import CongratulationCompo from "./Components/CongratulationCompo";
+// import CongratulationCompo from "./Components/CongratulationCompo";
 import LoadingIndicator from "./Components/UI/LoadingIndicator";
 import { Suspense } from "react";
 
@@ -26,10 +26,7 @@ const App = () => {
             </Suspense>
           ),
         },
-        {
-          path: "/Congratulation",
-          element: <CongratulationCompo />,
-        },
+        
       ],
     },
   ]);

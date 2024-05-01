@@ -9,7 +9,7 @@ export default function HomePage() {
   const { currentStep } = useContext(ActionContext);
   
   return (
-    <div className="bg-slate-600 flex align-center w-dvh h-[100%] sm:h-dvh font-Ubuntu md:p-10">
+    <div className="bg-[#C0E8FB] flex align-center w-dvh h-[100%] sm:h-dvh font-Ubuntu md:p-10">
       <div className="w-full h-full md:w-[1080px] sm:bg-white rounded-lg sm:mx-auto md:p-10">
         <div className="w-dvh flex flex-col md:flex-row md:gap-10 h-full relative">
           {/* side and top display */}

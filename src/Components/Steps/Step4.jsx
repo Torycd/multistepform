@@ -31,7 +31,7 @@ export default function Step4({ onComplete }) {
         heading="Finishing up"
         subHeading="Double-check everything looks before confirming"
       />
-      <div className="bg-slate-100 p-5 rounded-lg space-y-3 font-bold ">
+      <div className="bg-[#FFFDFE] p-5 rounded-lg space-y-3 font-bold ">
         <ul className="border-b border-black">
           {plans.map((item, index) => (
             <>

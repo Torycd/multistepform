@@ -63,7 +63,7 @@ export default function Step2({onComplete}) {
             <div
               onClick={() => handleActive("one")}
               className={` flex sm:flex-col  sm:justify-between gap-5 rounded-lg border-2 ${
-                activeState.one ? "border-blue-500" : "border-[#B4E7FF]"
+                activeState.one ? "border-[#070C2E]" : "border-[#B4E7FF]"
               } p-4`}
             >
               <div>
@@ -92,7 +92,7 @@ export default function Step2({onComplete}) {
             <div
               onClick={() => handleActive("two")}
               className={` flex sm:flex-col  sm:justify-between gap-5 rounded-lg border-2 ${
-                activeState.two ? "border-blue-500" : "border-[#B4E7FF]"
+                activeState.two ? "border-[#070C2E]" : "border-[#B4E7FF]"
               } p-4`}
             >
               <div>
@@ -120,7 +120,7 @@ export default function Step2({onComplete}) {
             <div
               onClick={() => handleActive("three")}
               className={`flex sm:flex-col  sm:justify-between gap-5  rounded-lg border-2 ${
-                activeState.three ? "border-blue-500" : "border-[#B4E7FF]"
+                activeState.three ? "border-[#070C2E]" : "border-[#B4E7FF]"
               } p-4`}
             >
               <div>

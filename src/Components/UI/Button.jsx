@@ -8,8 +8,8 @@ export default function Button({ type, butName, disable, ...props }) {
         type={type}
         className={
           disable
-            ? "bg-[#3e52a3] px-4 py-3 rounded-lg text-white cursor-not-allowed"
-            : "bg-[#3e52a3] px-4 py-3 rounded-lg text-white"
+            ? "bg-[#070C2E] px-4 py-3 rounded-lg text-white cursor-not-allowed"
+            : "bg-[#070C2E] px-4 py-3 rounded-lg text-white"
         }
         disabled={disable ? disable : null}
         {...props}

@@ -48,7 +48,7 @@ export default function Step2({ onComplete }) {
 
   const btnDisabled = !Object.values(activeState).some((state) => state);
   return (
-    <div className="space-y-10 py-10 h-full font-bold flex justify-between">
+    <div className="space-y-10 py-10 h-full font-bold flex ">
       <HeadStep
         heading="Select your plan"
         subHeading="You have the option of monthly or yearly billing."

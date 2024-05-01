@@ -23,7 +23,7 @@ export default function HomePage() {
           </div>
 
           {/* Main content */}
-          <div className="w-dvh h-full -translate-y-[10%] mt-6 sm:mt-0 sm:-translate-y-0 rounded-lg mx-6 md:w-[60%] z-10  bg-white px-10">
+          <div className="w-dvh h-full -translate-y-[10%] mt-6 sm:mt-0 sm:-translate-y-0 rounded-lg mx-6 md:w-[60%] z-10  bg-white px-5">
             <Suspense fallback={<LoadingIndicator />}>
                 <Outlet />
             </Suspense>

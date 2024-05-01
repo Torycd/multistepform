@@ -3,14 +3,17 @@ import PropTypes from "prop-types";
 export default function SvgBack({ className }) {
   return (
     <>
-      <div className={`${className} hidden md:block w-full h-full`}>
+      <div
+        id="parentDiv"
+        className={`${className} hidden md:block w-full h-full`}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="100%"
           height="100%"
           preserveAspectRatio="none"
           fill="none"
-          viewBox="0 0 100% 100%"
+          viewBox="0 0 274 568"
         >
           <rect width="274" height="568" fill="#483EFF" rx="10" />
           <mask
@@ -20,7 +23,6 @@ export default function SvgBack({ className }) {
             x="0"
             y="0"
             maskUnits="userSpaceOnUse"
-            style={{ maskType: "alpha" }} // Corrected style attribute
           >
             <rect width="274" height="568" fill="#fff" rx="10" />
           </mask>
@@ -51,6 +53,7 @@ export default function SvgBack({ className }) {
           </g>
         </svg>
       </div>
+
       <div className={`${className} md:hidden`}>
         <svg
           xmlns="http://www.w3.org/2000/svg"

@@ -32,7 +32,7 @@ export default function Step1({onComplete}) {
   }
 
   return (
-    <div className="space-y-10 py-10 h-full">
+    <div className="space-y-10 py-10 w-full h-full">
       <HeadStep
         heading="Personal Info"
         subHeading="Please provide your name, email address, and phone number."

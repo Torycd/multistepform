@@ -59,12 +59,12 @@ export default function Step2({onComplete}) {
           onSubmit={handleSubmit}
         >
           {/*  */}
-          <div className="grid grid-cols-3 gap-5">
+          <div className="grid sm:grid-cols-3 gap-5">
             <div
               onClick={() => handleActive("one")}
-              className={`h-36 flex flex-col justify-between rounded-lg border-2 ${
+              className={` flex sm:flex-col  sm:justify-between gap-5 rounded-lg border-2 ${
                 activeState.one ? "border-blue-500" : "border-[#B4E7FF]"
-              } p-2`}
+              } p-4`}
             >
               <div>
                 <svg
@@ -91,9 +91,9 @@ export default function Step2({onComplete}) {
 
             <div
               onClick={() => handleActive("two")}
-              className={`h-36 flex flex-col justify-between rounded-lg border-2 ${
+              className={` flex sm:flex-col  sm:justify-between gap-5 rounded-lg border-2 ${
                 activeState.two ? "border-blue-500" : "border-[#B4E7FF]"
-              } p-2`}
+              } p-4`}
             >
               <div>
                 <svg
@@ -119,9 +119,9 @@ export default function Step2({onComplete}) {
             </div>
             <div
               onClick={() => handleActive("three")}
-              className={`h-36 flex flex-col justify-between rounded-lg border-2 ${
+              className={`flex sm:flex-col  sm:justify-between gap-5  rounded-lg border-2 ${
                 activeState.three ? "border-blue-500" : "border-[#B4E7FF]"
-              } p-2`}
+              } p-4`}
             >
               <div>
                 <svg

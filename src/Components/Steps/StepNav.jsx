@@ -6,8 +6,8 @@ export default function StepNav({ stage, info, isActive }) {
       <div
         className={
           isActive
-            ? "w-8 h-8 md:w-12 md:h-12 rounded-full border-2 flex items-center bg-[#B4E7FF] text-black"
-            : "w-8 h-8 md:w-12 md:h-12 rounded-full border-2 flex items-center hover:bg-[#B4E7FF] hover:text-black"
+            ? "w-12 h-12 rounded-full border-2 flex items-center bg-[#B4E7FF] text-black"
+            : "w-12 h-12 rounded-full border-2 flex items-center hover:bg-[#B4E7FF] hover:text-black"
         }
       >
         <p className="mx-auto text-xl">{stage}</p>

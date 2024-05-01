@@ -11,7 +11,7 @@ export default function HomePage() {
   return (
     <div className="bg-slate-600 flex align-center w-dvh h-dvh font-Ubuntu md:p-10">
       <div className="w-full md:w-[1080px] sm:bg-white rounded-lg sm:mx-auto md:p-10">
-        <div className="w-full flex flex-col md:flex-row md:gap-10 h-full relative">
+        <div className="w-dvh flex flex-col md:flex-row md:gap-10 h-full relative">
           {/* side and top display */}
           <div className="w-full sm:w-[40%] sm:relative">
             <div className="sm:absolute sm:inset-0">
@@ -23,7 +23,7 @@ export default function HomePage() {
           </div>
 
           {/* Main content */}
-          <div className="w-full md:w-[60%] z-10  bg-white p-4">
+          <div className="w-dvh -translate-y-[15%] sm:-translate-y-0 rounded-lg mx-10 md:w-[60%] z-10  bg-white px-10">
             <Suspense fallback={<LoadingIndicator />}>
                 <Outlet />
             </Suspense>

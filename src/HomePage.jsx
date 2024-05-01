@@ -19,7 +19,7 @@ export default function HomePage() {
 
   return (
     <div className="bg-slate-600 flex align-center w-dvh h-dvh font-Ubuntu md:p-10">
-      <div className="max-w-[1080px] sm:bg-white rounded-lg sm:mx-auto md:p-10">
+      <div className="md:w-[1080px] sm:bg-white rounded-lg sm:mx-auto md:p-10">
         <div className="flex flex-col md:flex-row md:gap-10 h-full relative">
           {/* side and top display */}
           <div className="w-full sm:w-[40%] sm:relative">

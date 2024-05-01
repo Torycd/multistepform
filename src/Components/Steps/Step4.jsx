@@ -68,7 +68,7 @@ export default function Step4({ onComplete }) {
                 <div className="flex justify-between">
                   <h2>Larger Storage:</h2>
                   <span>
-                    <p>{isYearlyBilling ? "+$20/mo" : "+$2/mo"}</p>
+                    <p>{isYearlyBilling ? "+$20/yr" : "+$2/mo"}</p>
                   </span>
                 </div>
               ) : null}
@@ -76,7 +76,7 @@ export default function Step4({ onComplete }) {
                 <div className="flex justify-between">
                   <h2>Customizable Profile:</h2>
                   <span>
-                    <p>{isYearlyBilling ? "+$30/mo" : "+$3/mo"}</p>
+                    <p>{isYearlyBilling ? "+$30/yr" : "+$3/mo"}</p>
                   </span>
                 </div>
               ) : null}

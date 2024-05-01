@@ -49,7 +49,7 @@ export default function Step2({onComplete}) {
 
   const btnDisabled = !Object.values(activeState).some((state) => state);
   return (
-    <div className="space-y-10 py-10 h-full">
+    <div className="space-y-10 py-10 h-full font-bold">
       <HeadStep
         heading="Select your plan"
         subHeading="You have the option of monthly or yearly billing."
@@ -85,7 +85,7 @@ export default function Step2({onComplete}) {
               </div>
               <div>
                 <h2>Arcade</h2>
-                <p>$9/mo</p>
+                <p className="opacity-60">$9/mo</p>
               </div>
             </div>
 
@@ -114,7 +114,7 @@ export default function Step2({onComplete}) {
               </div>
               <div>
                 <h2>Advanced</h2>
-                <p>$12/mo</p>
+                <p className="opacity-60">$12/mo</p>
               </div>
             </div>
             <div
@@ -142,7 +142,7 @@ export default function Step2({onComplete}) {
               </div>
               <div>
                 <h2>Pro</h2>
-                <p>$15/mo</p>
+                <p className="opacity-60">$15/mo</p>
               </div>
             </div>
           </div>

@@ -48,13 +48,13 @@ export default function Step2({ onComplete }) {
 
   const btnDisabled = !Object.values(activeState).some((state) => state);
   return (
-    <div className="space-y-10 py-10 h-full font-bold flex ">
+    <div className="space-y-10 py-10 h-full font-bold flex flex-col justify-between">
       <HeadStep
         heading="Select your plan"
         subHeading="You have the option of monthly or yearly billing."
       />
       <form
-        className="flex flex-col justify-between gap-10"
+        className="flex flex-col justify-between gap-10 h-full"
         onSubmit={handleSubmit}
       >
         {/*  */}
@@ -145,13 +145,13 @@ export default function Step2({ onComplete }) {
             </div>
           </div>
         </div>
+        <div className="flex justify-between font-bold">
+          <button to="/" className="px-4 py-3" onClick={moveToPreviousStep}>
+            Go Back
+          </button>
+          <Button type="submit" butName="Next Step" disable={btnDisabled} />
+        </div>
       </form>
-      <div className="flex justify-between font-bold">
-        <button to="/" className="px-4 py-3" onClick={moveToPreviousStep}>
-          Go Back
-        </button>
-        <Button type="submit" butName="Next Step" disable={btnDisabled} />
-      </div>
     </div>
   );
 }

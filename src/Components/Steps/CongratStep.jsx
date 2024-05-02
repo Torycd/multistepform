@@ -1,7 +1,7 @@
 const CongratStep = () => {
   return (
-    <>
-      <div className="flex justify-start gap-10 h-full">
+    <div className="py-10 gap-2 h-full flex flex-col">
+      <div className="flex justify-start gap-10 ">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="80"
@@ -24,7 +24,7 @@ const CongratStep = () => {
       <p className="text-start text-xl">
         Congratulation, proceed to next step!
       </p>
-    </>
+    </div>
   );
 };
 
